@@ -8,7 +8,7 @@ import maya.cmds
 import argparse
 
 """
-Create Argument Parser
+Create and setup argument parser
 """
 
 parser = argparse.ArgumentParser(description='Create number of spheres defined by user with random size and group then save')
@@ -19,17 +19,19 @@ parser.add_argument('--max', nargs='?', type=float, const=1, help="Maximum radiu
 
 args = parser.parse_args()
 
-maya.standalone.initialize()
+maya.standalone.initialize()        # Initiate Maya as standalone
 
 spheres = []        # Initiate the list for names of spheres
 
 print("Creating {} sphere(s)...".format(args.num_sphere))
-for i in range(args.num_sphere):
+for i in range(args.num_sphere):        # Create Spheres
     print("Creating sphere Num.{}".format(i))
     spheres.append(maya.cmds.polySphere(r=random.uniform(args.min, args.max)))
 
-for s in spheres:
+for s in spheres:       # Group Up
     maya.cmds.group(s, n="Spheres")
-
+"""
+Name and Save to mayaAscii file
+"""
 maya.cmds.file(rename="{}.ma".format(args.name))
 maya.cmds.file(save=True, type="mayaAscii")
