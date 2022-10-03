@@ -1,0 +1,7 @@
+Create specific number of spheres defined by user with random size and group them.
+
+Arguments: 
+  --num_sphere: Number of cubes
+  --name: File Name to save to
+  --min: Minimum radius of the Sphere, Default 0.1
+  --max: Maximum radius of the Sphere, Default 1
