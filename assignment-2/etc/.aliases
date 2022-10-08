@@ -1,0 +1,3 @@
+#Alias to creat environment $Assets base on current date
+
+$env:Assets = Get-Date -uFormat "%m/%d/%Y"
