@@ -1,0 +1,3 @@
+#Alias to call startwork.sh to set up the environment for artist
+
+New-Alias -Name "startwork" -Value startwork.sh
