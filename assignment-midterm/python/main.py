@@ -1,5 +1,6 @@
 import argparse
 import csv
+import datetime
 import json
 import os
 from zipfile import ZipFile
@@ -59,8 +60,10 @@ if args.zip:
         for file in dir_list:
             newzip.write(file)
 
+# Create CSV file for thumbnails, file names and date
 with open('archive.csv','wb') as csvfile:
     filewriter = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
     filewriter.writerow(args.thumbnail)
+    x = datetime.datetime.now()
     for file in dir_list:
-        filewriter.writerow(file)
+        filewriter.writerow(file, x.strftime("%x"))
