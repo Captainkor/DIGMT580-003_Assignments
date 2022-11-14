@@ -6,6 +6,7 @@ from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 import maya.cmds
 
+# Create reference to Maya window
 mayaMainWindowPtr = omui.MQtUtil.mainWindow()
 mayaMainWindow = wrapInstance(long(mayaMainWindowPtr), QWidget)
 
@@ -24,6 +25,7 @@ class MayaWidget(QWidget):
 
         self.revolve_button.clicked.connect(self.revolve_onClicked)
 
+# Main Function
     def revolve_onClicked(self):
         curveName = self.curve_name.toPlainText()
         maya.cmds.revolve(curveName, ax=(1, 0, 0), p=(0, 0, 0))
