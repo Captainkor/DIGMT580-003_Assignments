@@ -18,9 +18,10 @@ class MayaWidget(QWidget):
         self.setWindowFlags(Qt.Window)
 
         self.setWindowTitle('Revolve curve around X')
-        self.setGeometry(50, 50, 250, 150)
+        self.setGeometry(50, 50, 300, 300)
 
         self.revolve_button = QPushButton('Revolve', self)
+        self.revolve_button.move(100,200)
         self.curve_name = QLineEdit('Curve Name', self)
 
         self.revolve_button.clicked.connect(self.revolve_onClicked)
