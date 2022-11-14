@@ -17,13 +17,17 @@ class MayaWidget(QWidget):
         self.setWindowFlags(Qt.Window)
 
         self.setWindowTitle('Revolve curve around X')
-        self.setGeometry(50,50,250,150)
+        self.setGeometry(50, 50, 250, 150)
 
-        self.revolve_button = QPushButton('Revolve',self)
-        self.curve_name = QTextEdit('Curve Name',self)
+        self.revolve_button = QPushButton('Revolve', self)
+        self.curve_name = QLineEdit('Curve Name', self)
 
         self.revolve_button.clicked.connect(self.revolve_onClicked)
 
     def revolve_onClicked(self):
         curveName = self.curve_name.toPlainText()
-        maya.cmds.revolve(curveName, ax=(1, 0, 0), p = (0, 0, 0))
+        maya.cmds.revolve(curveName, ax=(1, 0, 0), p=(0, 0, 0))
+
+
+new_widget = MayaWidget()
+new_widget.show()
